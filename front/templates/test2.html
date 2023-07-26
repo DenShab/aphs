@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru" >
+<head>
+    <script type="text/javascript" src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <link href="../bootstrap-5.3.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="ascii">
+    <title>Газпром справочная</title>
+    <!-- Custom styles for this template -->
+    <link href="../css/headers.css" rel="stylesheet">
+    <link href="../css/list-groups.css" rel="stylesheet">
+    <link href="../css/grid.css" rel="stylesheet">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="../js/test2.js"></script>
+
+    <link rel="stylesheet" href="../js/kindeditor-master/themes/default/default.css">
+    <script charset="utf-8" src="../js/kindeditor-master/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="../js/kindeditor-master/lang/ru.js"></script>
+        <link type="image/x-icon" href="../media/favicon.ico" rel="icon">
+
+    <script>
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					resizeType : 0,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|' , 'link']
+				});
+			});
+
+
+
+    </script>
+</head>
+<body onload="getDoc();">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 16 16">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+
+    </symbol>
+</svg>
+<main class="container">
+    <header class="py-3 mb-3 border-bottom">
+        <div class="container-fluid d-grid gap-3 align-items-center">
+
+
+            <div class="d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <a href="#"
+                       class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg class="bi me-2" width="40" height="32">
+                            <use xlink:href="#bootstrap"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow">
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="openDoc('editor.html',0)">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Редактировать
+                                    </font>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="get_selected_text(); return false;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Получить выделенный текст
+                                    </font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </header>
+
+
+    <div class="row g-5" id="form_reader">
+        <div class="col-md-8" id="doc">
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded">
+                    <h4 class="fst-italic">Навигация</h4>
+                    <div class="searchContend_h">
+    <div class="ui-grid-c">
+        <div class="ui-block-a">
+            <input name="text-12" id="text-12" value="" type="text" class="textSearchvalue_h">
+        </div>
+        <div class="ui-block-b"> <a href="#" data-role="button" data-corners="false" data-inline="true" class="searchButtonClickText_h">Search</a>
+
+        </div>
+
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</main>
+<div class="row g-5" >
+        <div class="col-md-8" >
+            <form class="form-outline mb-4 d-none container mw-100" id="form_editor"  onload="getForm();">
+
+        <textarea class="form-control container" name="content"
+                  style="width: 100vw;visibility: hidden; display: none;" id="doc_editor">
+
+        </textarea>
+</form>
+        </div>
+        </div>
+
+</body>
+    <link href="../css/test2.css" rel="stylesheet">
+
+</html>
