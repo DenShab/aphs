@@ -121,7 +121,6 @@ def add(doc_name, section):
     data.append(text)
     data.append(the_contents_of_body_without_body_tags)
     data.append('')
-
     db.add_new_doc(data)
     # db.add_section(section)
 

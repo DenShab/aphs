@@ -22,7 +22,7 @@ def add_doc_adapter(section):
 def open_doc_adapter(target):
     print('open_doc_adapter')
     print(target)
-    eel.show('templates/'+target)
+    eel.show('templates/' + target)
 
 
 @eel.expose
